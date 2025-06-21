@@ -8,11 +8,11 @@ const BookDetails = () => {
   const bookData = data.find(book => book.bookId === id)
   const { image, author, bookName, review, tags, publisher, yearOfPublishing, rating, totalPages, category } = bookData;
   return (
-    <div className='w-10/12 min-h-screen mx-auto flex items-center bg-slate-100 rounded-xl my-10'>
-      <div className='flex-1/2 bg-slate-200 rounded-xl'>
+    <div className='w-full md:px-0 md:w-10/12 min-h-screen mx-auto flex-col md:flex-row md:flex items-center bg-slate-100 rounded-xl my-10'>
+      <div className='md:flex-1/2 mb-10 md:mb-0 bg-slate-200 rounded-xl'>
         <img className='w-80 mx-auto py-10 md:py-32' src={image} alt="" />
       </div>
-      <div className='flex-1/2 pl-12'>
+      <div className='md:flex-1/2 pl-0 m-8 pb-8 md:pl-12'>
         <h2 className='text-2xl md:text-4xl font-bold'>{bookName}</h2>
         <p className='font-semibold text-xl py-3'>By:{author}</p>
         <p className='text-xl border-y py-3'>{category}</p>
