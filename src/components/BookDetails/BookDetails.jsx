@@ -1,12 +1,25 @@
-import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToStoredReadList } from '../../Utility/AddToStoredRead/addToStoredRead';
+import { addToStoredWishList } from '../../Utility/AddToStoredWishList/addToStoredWishList';
 
 const BookDetails = () => {
   const { bookId } = useParams();
   const data = useLoaderData()
+  console.log("loaded data", data);
   const id = parseInt(bookId);
   const bookData = data.find(book => book.bookId === id)
   const { image, author, bookName, review, tags, publisher, yearOfPublishing, rating, totalPages, category } = bookData;
+
+
+  const handleMarkAsRead = (id) => {
+    // read list add to localStorage
+    addToStoredReadList(id)
+  }
+
+  const handleMarkAsWishList = (id) => {
+    // wish list add to localStorage
+    addToStoredWishList(id)
+  }
   return (
     <div className='w-full md:px-0 md:w-10/12 min-h-screen mx-auto flex-col md:flex-row md:flex items-center bg-slate-100 rounded-xl my-10'>
       <div className='md:flex-1/2 mb-10 md:mb-0 bg-slate-200 rounded-xl'>
@@ -40,8 +53,8 @@ const BookDetails = () => {
           </div>
         </div>
         <div className='flex gap-7'>
-          <button className='btn btn-outline btn-accent'>Read</button>
-          <button className='btn btn-accent'>WishList</button>
+          <button onClick={() => handleMarkAsRead(bookId)} className='btn btn-outline btn-accent'>Read</button>
+          <button onClick={() => handleMarkAsWishList(bookId)} className='btn btn-accent'>WishList</button>
         </div>
       </div>
     </div>
