@@ -9,7 +9,7 @@ const ReadList = ({ book }) => {
     <div className='bg-slate-100 rounded-xl shadow-blue-300 shadow-2xl my-10'>
       <div className='flex flex-col lg:flex-row gap-3'>
         <div className='bg-slate-300 w-11/12 md:w-52 rounded-xl m-5'>
-          <img src={image} className='w-32 m-5 mx-auto' alt="" />
+          <img src={image} className='w-32 m-5 md:m-8 mx-auto' alt="" />
         </div>
         <div className='px-4 md:px-0 py-4 md:py-0'>
           <h2 className='text-xl md:text-3xl font-bold py-3'>{bookName}</h2>
@@ -36,7 +36,7 @@ const ReadList = ({ book }) => {
             </p>
           </div>
           <div className='divider'></div>
-          <div className='flex gap-3'>
+          <div className='flex gap-1 md:gap-3 mb-5'>
             <button className='bg-[#328EFF]/15 text-blue-800 rounded-full btn'>Category:{category}</button>
             <button className='bg-[#FFAC33]/15 text-[#FFAC33] rounded-full btn'>Rating:{rating}</button>
             <Link to={`/books/${bookId}`}> <button className='bg-[#23BE0A] text-sm text-white btn rounded-full'>View Details</button></Link>

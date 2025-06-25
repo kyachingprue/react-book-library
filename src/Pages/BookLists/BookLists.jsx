@@ -6,10 +6,12 @@ import { getStoredReadList } from '../../Utility/AddToStoredRead/addToStoredRead
 import { getStoredWishList } from '../../Utility/AddToStoredWishList/addToStoredWishList';
 import ReadList from '../../components/ReadList/ReadList';
 import WishList from '../../components/WishList/WishList';
+import { FaChevronDown } from 'react-icons/fa';
 
 const BookLists = () => {
   const [readList, setReadList] = useState([]);
   const [wishList, setWishList] = useState([]);
+  const [sort, setSort] = useState('');
   const allBooks = useLoaderData();
 
   useEffect(() => {
@@ -23,10 +25,36 @@ const BookLists = () => {
     setReadList(readBookList);
     setWishList(wishBookList);
   }, [allBooks])
+
+  const handleSort = sortType => {
+    setSort(sortType);
+
+    if (sortType === 'Ratings') {
+      const sortReadList = [...readList].sort((a, b) => a.rating - b.rating);
+      setReadList(sortReadList);
+      setWishList(sortReadList);
+    }
+    if (sortType === 'number of pages') {
+      const sortReadList = [...readList].sort((a, b) => a.totalPages - b.totalPages);
+      setReadList(sortReadList);
+      setWishList(sortReadList);
+    }
+  }
   return (
     <div className='w-11/12 mx-auto'>
       <div className='bg-slate-200 mt-3 rounded-2xl'>
         <h2 className='text-2xl md:text-4xl font-bold py-5 text-center'>Books</h2>
+      </div>
+      <div className='py-5 text-center'>
+        <details className="dropdown">
+          <summary className="btn m-1 bg-[#23BE0A] text-white">{
+            sort ? `Sort by: ${sort}` : <h2 className='flex items-center gap-3'>Sort by<FaChevronDown></FaChevronDown></h2>
+          }</summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+            <li onClick={() => handleSort("Ratings")}><a>Rating</a></li>
+            <li onClick={() => handleSort("number of pages")}><a>Number of pages</a></li>
+          </ul>
+        </details>
       </div>
       <Tabs className="my-10">
         <TabList>

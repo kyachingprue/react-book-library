@@ -23,7 +23,9 @@ const addToStoredReadList = id => {
     const storedListStr = JSON.stringify(storedList);
     localStorage.setItem('read-list', storedListStr);
     // conform notification
-    toast.success('🦄 Read List add successful');
+    toast.success('🦄 Read List add successful', {
+      autoClose: 2000,
+    });
   }
 };
 export { addToStoredReadList, getStoredReadList };
