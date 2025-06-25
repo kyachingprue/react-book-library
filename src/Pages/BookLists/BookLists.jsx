@@ -42,6 +42,12 @@ const BookLists = () => {
   }
   return (
     <div className='w-11/12 mx-auto'>
+      <article>
+        <title>LIBRARY | Listed Books</title>
+        <meta name="author" content="Josh" />
+        <link rel="author" href="https://twitter.com/joshcstory/" />
+        <meta name="keywords" content="" />
+      </article>
       <div className='bg-slate-200 mt-3 rounded-2xl'>
         <h2 className='text-2xl md:text-4xl font-bold py-5 text-center'>Books</h2>
       </div>

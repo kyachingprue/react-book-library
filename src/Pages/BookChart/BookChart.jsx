@@ -47,6 +47,13 @@ const getPath = (x, y, width, height) => {
 const BookChart = () => {
   return (
     <div className='my-10 w-10/12 mx-auto'>
+      <article>
+        <title>LIBRARY | Pages to Read</title>
+        <meta name="author" content="Josh" />
+        <link rel="author" href="https://twitter.com/joshcstory/" />
+        <meta name="keywords" content="" />
+
+      </article>
       <BarChart
         width={1100}
         height={500}

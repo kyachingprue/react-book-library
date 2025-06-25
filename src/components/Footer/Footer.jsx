@@ -1,12 +1,12 @@
 import React from 'react';
-import libraryLogo from '../../assets/book-library-logo.webp'
+import logoImg from '../../assets/letter-m (1).png'
 
 const Footer = () => {
   return (
     <div>
       <footer className="footer sm:footer-horizontal bg-slate-300 text-base-content p-10">
         <aside>
-          <img className='w-20 h-20 rounded-full' src={libraryLogo} alt="libraryLogo images" />
+          <img className='w-20 h-20 rounded-full' src={logoImg} alt="libraryLogo images" />
           <p>
             ACME Industries Ltd.
             <br />
